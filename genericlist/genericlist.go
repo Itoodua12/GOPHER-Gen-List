@@ -45,3 +45,11 @@ func (l *GenericList[T]) Print() {
 		fmt.Println(v)
 	}
 }
+
+func (l *GenericList[T]) Clear() {
+	l.data = nil
+}
+
+func (l *GenericList[T]) IsEmpty() bool {
+    return len(l.data) == 0
+}
