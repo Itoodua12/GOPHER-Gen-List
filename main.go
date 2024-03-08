@@ -2,22 +2,30 @@ package main
 
 import (
 	"fmt"
-	"genericlist/genericlist"
+	"genericlist/genericstack"
+	"reflect"
 )
 
 func main() {
 
-	list := genericlist.Create[string]()
+	stack := genericstack.Stack{}
 
-	list.Add("El Matador")
-	list.Add("The Machine")
-	list.Add("Jon Bones Jones")
-	list.RemoveByValue("Jon Bones Jones")
-	list.Add("Volk")
-	list.Remove(1)
+	stack.Push(12)
+	stack.Push("Any type u want")
+	stack.Push(true)
+	stack.Push(3.14159)
+	stack.Push(func() {
+		fmt.Println("This is Function !!!!")
+	})
 
-	fmt.Println(list.Get(0)) // El Matador
-
-	list.Print()
+	for !stack.IsEmpty() {
+		item, _ := stack.Pop()
+		if reflect.TypeOf(item).Kind() == reflect.Func {
+			fn, _ := item.(func())
+			fn()
+		} else {
+			fmt.Printf("Value is -> %v\n", item)
+		}
+	}
 
 }
