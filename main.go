@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"genericlist/queue"
 	"genericlist/genericstack"
 	"reflect"
 )
@@ -19,13 +20,26 @@ func main() {
 	})
 
 	for !stack.IsEmpty() {
-		item, _ := stack.Pop()
-		if reflect.TypeOf(item).Kind() == reflect.Func {
-			fn, _ := item.(func())
+		el, _ := stack.Pop()
+		if reflect.TypeOf(el).Kind() == reflect.Func {
+			fn, _ := el.(func())
 			fn()
 		} else {
-			fmt.Printf("Value is -> %v\n", item)
+			fmt.Printf("Value is -> %v\n", el)
 		}
+	}
+
+	fmt.Println(" ##### QUEUE ##### ")
+
+	queue := queue.Queue{}
+
+	queue.Enqueue(13)
+	queue.Enqueue("GOpher")
+	queue.Enqueue(false)
+
+	for !queue.IsEmpty() {
+		el, _ := queue.Dequeue()
+		fmt.Printf("Value is -> %v\n", el)
 	}
 
 }
