@@ -2,9 +2,11 @@ package main
 
 import (
 	"fmt"
-	"github.com/Itoodua12/GOPHER-Gen-List/internal/queue"
-	"github.com/Itoodua12/GOPHER-Gen-List/internal/genericstack"
 	"reflect"
+
+	"github.com/Itoodua12/GOPHER-Gen-List/internal/genericstack"
+	"github.com/Itoodua12/GOPHER-Gen-List/internal/queue"
+	"github.com/Itoodua12/GOPHER-Gen-List/internal/set"
 )
 
 func main() {
@@ -41,5 +43,19 @@ func main() {
 		el, _ := queue.Dequeue()
 		fmt.Printf("Value is -> %v\n", el)
 	}
+
+	fmt.Println(" ##### SET ##### ")
+
+	set := set.NewMySet()
+
+	set.Add("IT12")
+	set.Add("IT12")
+	set.Add(12)
+	set.Add(12)
+
+	fmt.Printf("set size is %v\n", set.Size()) // 2
+
+	exists := set.Contains("IT12")
+	fmt.Println("", exists)
 
 }
