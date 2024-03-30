@@ -2,16 +2,19 @@ package main
 
 import (
 	"fmt"
-	"reflect"
-
-	"github.com/Itoodua12/GOPHER-Gen-List/internal/genericstack"
+	"github.com/Itoodua12/GOPHER-Gen-List/internal/hash-table"
 	"github.com/Itoodua12/GOPHER-Gen-List/internal/queue"
 	"github.com/Itoodua12/GOPHER-Gen-List/internal/set"
+	"github.com/Itoodua12/GOPHER-Gen-List/internal/stack"
+	"reflect"
 )
 
 func main() {
+	fmt.Println(" ##### HASH TABLE ##### ")
+	test_hashtable()
 
-	stack := genericstack.Stack{}
+	fmt.Println(" ##### STACK ##### ")
+	stack := stack.Stack{}
 
 	stack.Push(12)
 	stack.Push("Any type u want")
@@ -58,4 +61,21 @@ func main() {
 	exists := set.Contains("IT12")
 	fmt.Println("", exists)
 
+}
+
+func test_hashtable() {
+	hashTable := hash_table.Init()
+	list := []string{
+		"D",
+		"E",
+		"A",
+		"B",
+		"C",
+	}
+	for _, v := range list {
+		hashTable.Insert(v)
+	}
+	fmt.Println(hashTable.Search("A"))
+	hashTable.Delete("A")
+	fmt.Println(hashTable.Search("A"))
 }

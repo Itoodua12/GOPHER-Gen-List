@@ -1,10 +1,10 @@
-package genericstack
+package stack
 
 import (
 	"errors"
 )
 
-// -> It holds elements of any type. 
+// -> It holds elements of any type.
 
 type Stack struct {
 	data []interface{}
