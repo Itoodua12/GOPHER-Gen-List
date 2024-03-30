@@ -7,3 +7,4 @@
 + Set - Type Agnostic.
 + Stack
 + BST
++ Hash Table
