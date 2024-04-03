@@ -2,14 +2,18 @@ package main
 
 import (
 	"fmt"
-	"github.com/Itoodua12/GOPHER-Gen-List/internal/hash-table"
+	"reflect"
+
+	hash_table "github.com/Itoodua12/GOPHER-Gen-List/internal/hash-table"
+	linkedlist "github.com/Itoodua12/GOPHER-Gen-List/internal/linked-list"
 	"github.com/Itoodua12/GOPHER-Gen-List/internal/queue"
 	"github.com/Itoodua12/GOPHER-Gen-List/internal/set"
 	"github.com/Itoodua12/GOPHER-Gen-List/internal/stack"
-	"reflect"
 )
 
 func main() {
+
+
 	fmt.Println(" ##### HASH TABLE ##### ")
 	test_hashtable()
 
@@ -61,6 +65,9 @@ func main() {
 	exists := set.Contains("IT12")
 	fmt.Println("", exists)
 
+	test_linked_list()
+
+
 }
 
 func test_hashtable() {
@@ -78,4 +85,21 @@ func test_hashtable() {
 	fmt.Println(hashTable.Search("A"))
 	hashTable.Delete("A")
 	fmt.Println(hashTable.Search("A"))
+}
+
+
+func test_linked_list() {
+	fmt.Println(" ##### LINKED LIST ##### ")
+	l := linkedlist.LinkedList{}
+	l.Add(1)
+	l.Add(2)
+	l.Add(3)
+	l.Add(4)
+	l.Add(5)
+	l.Add(6)
+
+	get := l.Get(2)
+	fmt.Println("there is : ", get)
+	l.Delete(2)
+	l.String()
 }

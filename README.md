@@ -8,3 +8,4 @@
 + Stack
 + BST
 + Hash Table
++ Linked List
